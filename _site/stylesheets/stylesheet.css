@@ -1,0 +1,77 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, html {
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #606c71; 
+}
+
+a {
+    color: #1e6bb8;
+    text-decoration: none; 
+}
+
+a:hover {
+    text-decoration: underline; 
+}
+
+.page-header {
+    background-size: cover;
+    display: inline-block;
+    color: #fafafa;
+    height: 50vh;
+    padding: 20ex 6em;
+    width: 100vw;
+    
+    background-image: linear-gradient(to right, #267871, #136a8a, #185a9d);
+    background-size: cover;
+}
+
+.page-header-name {
+    font-size: 3.25rem;
+    margin: 0px;
+    text-align: center;
+}
+
+.page-header-tagline {
+    font-size: 1.35em;
+    font-weight: normal;
+    margin: .5ex 0px 0px 0px;
+    text-align: center;
+}
+
+ul.horizontal-nav {
+    background-color: #242424;
+    list-style-type: none;
+    margin: 0;
+    min-height: 5ex;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.horizontal-nav li {
+    display: inline-block;
+    float: unset;
+    padding: 14px 16px;
+}
+
+.horizontal-nav li a {
+    color: #fafafa;
+    text-decoration: none;
+}
+
+.main-content section {
+    margin: 0 auto;
+    padding: 2rem 6rem;
+    max-width: 64rem;
+}
