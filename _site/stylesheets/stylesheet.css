@@ -12,16 +12,16 @@ body, html {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
-    color: #606c71; 
+    color: #606c71;
 }
 
 a {
     color: #1e6bb8;
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline; 
+    text-decoration: underline;
 }
 
 .page-header {
@@ -31,7 +31,7 @@ a:hover {
     height: 50vh;
     padding: 20ex 6em;
     width: 100vw;
-    
+
     background-image: linear-gradient(to right, #267871, #136a8a, #185a9d);
     background-size: cover;
 }
@@ -53,7 +53,7 @@ ul.horizontal-nav {
     background-color: #242424;
     list-style-type: none;
     margin: 0;
-    min-height: 5ex;
+    height: 52px;
     padding: 0;
     overflow: hidden;
     text-align: center;
