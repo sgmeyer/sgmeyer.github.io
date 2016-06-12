@@ -1,6 +1,13 @@
 (function (repositoryService) {
   'use strict';
 
+  var clearProjects = function() {
+    var elm = document.getElementById('project-list');
+    while (elm.hasChildNodes()) {
+      elm.removeChild(elm.firstChild);
+    }
+  }
+
   var listProjects = function (projects) {
     projects.forEach(function (element, index, array) {
       var elm = document.getElementById('project-list');
@@ -39,6 +46,8 @@
 
   var languageOnClick = function() {
     var language = this.getAttribute('data-project-language');
+
+    clearProjects();
     window.repositoryService.getProjects(language, listProjects);
   };
 
