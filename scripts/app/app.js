@@ -3,7 +3,7 @@
 
   var listProjects = function (projects) {
     projects.forEach(function (element, index, array) {
-      console.log(element);
+      
     });
   };
 

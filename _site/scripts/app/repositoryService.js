@@ -2,12 +2,16 @@
   'use strict';
 
   var repositoriesUrl = 'https://api.github.com/users/sgmeyer/repos';
+  var repositoryResponseCode = undefined;
+  var repositoryResponseText = undefined;
   var repositoryService = window.repositoryService || {};
 
   var getLanguages = function(success, error) {
-    return nanoajax.ajax({url: repositoriesUrl}, function (code, responseText) {
+    var repositoryCallback = function (code, responseText) {
       var languages = new Set();
       var responseObject = {};
+      repositoryResponseCode = code;
+      repositoryResponseText = responseText;
       if(code === 200 && success) {
         responseObject = JSON.parse(responseText);
         responseObject.forEach(function (element, index, array) {
@@ -21,13 +25,21 @@
       } else if (error) {
         error('Failed to get languages.');
       }
-    });
+    };
+
+    if (repositoryResponseText && repositoryResponseCode === 200) {
+      repositoryCallback(repositoryResponseCode, repositoryResponseText);
+    } else {
+      nanoajax.ajax({url: repositoriesUrl}, repositoryCallback);
+    }
   };
 
   var getProjects = function(language, success, error) {
-    return nanoajax.ajax({url: repositoriesUrl}, function (code, responseText) {
+    var repositoryCallback = function (code, responseText) {
       var projects = [];
       var responseObject = {};
+      repositoryResponseCode = code;
+      repositoryResponseText = responseText;
       if (code == 200 && success) {
         responseObject = JSON.parse(responseText);
         responseObject.forEach(function (element, index, array) {
@@ -43,7 +55,13 @@
       } else if (error) {
         error('Failed to get projects.');
       }
-    });
+    };
+
+    if (repositoryResponseText && repositoryResponseCode === 200) {
+      repositoryCallback(repositoryResponseCode, repositoryResponseText);
+    } else {
+      nanoajax.ajax({url: repositoriesUrl}, repositoryCallback);
+    }
   };
 
   repositoryService.getLanguages = getLanguages;
