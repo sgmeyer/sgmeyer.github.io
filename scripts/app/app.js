@@ -3,7 +3,16 @@
 
   var listProjects = function (projects) {
     projects.forEach(function (element, index, array) {
-      
+      var elm = document.getElementById('project-list');
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      var txt = document.createTextNode(element.name + " : " + element.description);
+      a.setAttribute('href', element.url);
+
+
+      a.appendChild(txt);
+      li.appendChild(a);
+      elm.appendChild(li);
     });
   };
 

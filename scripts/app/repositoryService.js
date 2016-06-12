@@ -46,7 +46,8 @@
           if (element.language === language) {
             projects.push({
               name: element.name,
-              description: element.description
+              description: element.description,
+              url: element.html_url
             });
           }
         });
