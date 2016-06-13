@@ -120,9 +120,18 @@ ul.horizontal-nav {
   height: 200px;
   background-color: #cacaca;
   padding: 10px;
+  overflow: hidden;
 }
 
-@media only screen and (max-width: 767px) {
+@media handheld, only screen and (max-width: 767px) {
+  .grid-pad:first-of-type {
+    padding-top: 10px;    
+  }
+  
+  .grid-pad {
+    padding-top: 0px;
+  } 
+    
   .page-header {
     height: 50vh;
     padding: 10ex 3em;
