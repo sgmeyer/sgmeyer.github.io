@@ -9,17 +9,28 @@
   }
 
   var listProjects = function (projects) {
+    var elm = document.getElementById('project-list');
+    var gridPad = undefined;
     projects.forEach(function (element, index, array) {
-      var elm = document.getElementById('project-list');
-      var li = document.createElement('li');
-      var a = document.createElement('a');
+      var gridCell = document.createElement('div');
+      gridCell.setAttribute('class', 'col-1-4');
+
+      var div = document.createElement('div');
+      div.setAttribute('class', 'content card');
+
       var txt = document.createTextNode(element.name + " : " + element.description);
-      a.setAttribute('href', element.url);
 
+      div.appendChild(txt);
+      gridCell.appendChild(div);
 
-      a.appendChild(txt);
-      li.appendChild(a);
-      elm.appendChild(li);
+      if(index % 4 === 0) {
+        gridPad = document.createElement('div');
+        gridPad.setAttribute('class', 'grid grid-pad');
+        gridPad.appendChild(gridCell);
+        elm.appendChild(gridPad);
+      } else {
+        gridPad.appendChild(gridCell);
+      }
     });
   };
 
