@@ -117,15 +117,16 @@ ul.horizontal-nav {
 }
 
 .card {
-  height: 200px;
+  height: 220px;
   background-color: #cacaca;
   padding: 10px;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .icon {
     height: 64px;
-    width; 64px
+    width: 64px;
 }
 
 .container {
@@ -159,4 +160,8 @@ ul.horizontal-nav {
 /** Utilities **/
 .center {
     text-align: center;
+}
+
+.clickable {
+    cursor: pointer;
 }

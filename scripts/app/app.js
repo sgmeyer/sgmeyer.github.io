@@ -8,27 +8,24 @@
     }
   }
 
+  /**
+   * Constructs the project tiles. 
+   **/
   var listProjects = function (projects) {
     var elm = document.getElementById('project-list');
     var gridPad = undefined;
     projects.forEach(function (element, index, array) {
       var gridCell = document.createElement('div');
       gridCell.setAttribute('class', 'col-1-4 mobile-col-1-2');
-      gridCell.setAttribute('data-project-url', element.html_url);
+      gridCell.setAttribute('data-project-url', element.html_url);  
 
-      var div = document.createElement('div');
-      div.setAttribute('class', 'content card');
-
-      var h3 = document.createElement('h3');
-      h3.setAttribute('class', 'project-name');
-
-      var h3Txt = document.createTextNode(element.name);
-      var txt = document.createTextNode(element.description);
-
-      h3.appendChild(h3Txt);
-      div.appendChild(h3);
-      div.appendChild(txt);
-      gridCell.appendChild(div);
+      var languageIcon = languageIconService.getLanguageIcon(element.language);
+      var template = '<div onclick="location.href=\'' + element.url + '\'" class="content card clickable center">'
+                   +    '<svg class="icon" x="0px" y="0px" viewBox="' + languageIcon.viewBox + '"><use xlink:href="' + languageIcon.logoUrl + '#image"></use></svg>'
+                   +    '<h3 class="project-name">' + element.name + "</h3>" + (element.description || '')
+                   + '</div>'; 
+   
+      gridCell.innerHTML = template;
 
       if(index % 4 === 0) {
         gridPad = document.createElement('div');

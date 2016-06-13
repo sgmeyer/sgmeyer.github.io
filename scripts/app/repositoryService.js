@@ -47,7 +47,8 @@
             projects.push({
               name: element.name,
               description: element.description,
-              url: element.html_url
+              url: element.html_url,
+              language: element.language
             });
           }
         });
