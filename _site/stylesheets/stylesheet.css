@@ -28,7 +28,7 @@ a:hover {
   background-size: cover;
   display: inline-block;
   color: #fafafa;
-  height: 50vh;
+  height: 50%;
   padding: 20ex 6em;
   position: relative;
   width: 100vw;
@@ -122,18 +122,18 @@ ul.horizontal-nav {
   padding: 10px;
 }
 
-@media handheld, only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .page-header {
     height: 50vh;
     padding: 10ex 3em;
   }
   
   .page-header-name {
-        font-size: 2rem;
+    font-size: 2rem;
   }
 
-.page-header-tagline {
+  .page-header-tagline {
     font-size: 1.25em;
     margin: .5ex 0px 0px 0px;
-    }
+  }
 }
