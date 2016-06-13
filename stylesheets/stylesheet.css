@@ -119,3 +119,19 @@ ul.horizontal-nav {
   background-color: #cacaca;
   padding: 10px;
 }
+
+@media handheld, only screen and (max-width: 767px) {
+  .page-header {
+    height: 50vh;
+    padding: 10ex 3em;
+  }
+  
+  .page-header-name {
+        font-size: 2rem;
+  }
+
+.page-header-tagline {
+    font-size: 1.25em;
+    margin: .5ex 0px 0px 0px;
+    }
+}
