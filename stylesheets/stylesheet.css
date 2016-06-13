@@ -123,6 +123,15 @@ ul.horizontal-nav {
   overflow: hidden;
 }
 
+.icon {
+    height: 64px;
+    width; 64px
+}
+
+.container {
+    padding: 20px 20px 0px 20px;
+}
+
 @media handheld, only screen and (max-width: 767px) {
   .grid-pad:first-of-type {
     padding-top: 10px;    
@@ -145,4 +154,9 @@ ul.horizontal-nav {
     font-size: 1.25em;
     margin: .5ex 0px 0px 0px;
   }
+}
+
+/** Utilities **/
+.center {
+    text-align: center;
 }

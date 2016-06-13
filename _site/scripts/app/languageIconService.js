@@ -4,12 +4,13 @@
   var languageIconService = window.languageMapService || {};
   var defaultIcon = 'images/code.svg'
   var languageMap = [
-    { key: "CoffeeScript", logoUrl: 'images/coffeescript.svg' },
-    { key: "C#", logoUrl: 'images/csharp.svg' },
-    { key: "CSS", logoUrl: 'images/css.svg' },
-    { key: ".Net", logoUrl: 'images/dotNet.svg' },
-    { key: "HTML", logoUrl: 'images/html.svg' },
-    { key: "JavaScript", logoUrl: 'images/javascript.svg' }
+    { key: 'CoffeeScript', logoUrl: 'images/coffeescript.svg' },
+    { key: 'C#', logoUrl: 'images/csharp.svg' },
+    { key: 'CSS', logoUrl: 'images/css.svg' },
+    { key: '.Net', logoUrl: 'images/dotNet.svg' },
+    { key: 'HTML', logoUrl: 'images/html.svg' },
+    { key: 'JavaScript', logoUrl: 'images/javascript.svg' },
+    { key: 'Shell', logoUrl: 'images/shell.svg' }
   ];
 
   var getLanguageIcon = function (language) {
