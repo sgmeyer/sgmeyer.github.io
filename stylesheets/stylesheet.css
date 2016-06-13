@@ -71,13 +71,6 @@ a:hover {
 
 .global-nav .horizontal-nav li a {
   display: inline-block;
-  padding: 0px 10px;
-  height: 100%;
-  width: 100%;
-}
-
-.global-nav .horizontal-nav li a {
-  display: inline-block;
   height: 100%;
   width: 100%;
 }
@@ -95,7 +88,6 @@ ul.horizontal-nav {
 .horizontal-nav li {
     display: inline-block;
     float: unset;
-    padding: 14px 16px;
 }
 
 .horizontal-nav li:hover {
@@ -104,7 +96,10 @@ ul.horizontal-nav {
 
 .horizontal-nav li a {
     color: #fafafa;
+    display: inline-block;
+    height: 100%;
     fill: #fafafa;
+    padding: 14px 16px;
     text-decoration: none;
 }
 
