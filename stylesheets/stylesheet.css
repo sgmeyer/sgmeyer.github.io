@@ -30,6 +30,7 @@ a:hover {
     color: #fafafa;
     height: 50vh;
     padding: 20ex 6em;
+    position: relative;
     width: 100vw;
 
     background-image: linear-gradient(to right, #267871, #136a8a, #185a9d);
@@ -49,11 +50,43 @@ a:hover {
     text-align: center;
 }
 
+.global-nav {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.global-nav .horizontal-nav {
+  display: inline-block;
+  height: 76px;
+  opacity: .6;
+  transition: opacity .25s ease-in-out;
+}
+
+.global-nav .horizontal-nav:hover {
+  opacity: 1;
+}
+
+.global-nav .horizontal-nav li a {
+  display: inline-block;
+  padding: 0px 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.global-nav .horizontal-nav li a {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
 ul.horizontal-nav {
     background-color: #242424;
     list-style-type: none;
     margin: 0;
-    height: 52px;
+    height: 50px;
     padding: 0;
     overflow: hidden;
     text-align: center;
@@ -65,9 +98,19 @@ ul.horizontal-nav {
     padding: 14px 16px;
 }
 
+.horizontal-nav li:hover {
+    background-color: #3c3c3c;
+}
+
 .horizontal-nav li a {
     color: #fafafa;
+    fill: #fafafa;
     text-decoration: none;
+}
+
+.global-nav .horizontal-nav li a svg {
+    height: 48px;
+    width: 48px;
 }
 
 .main-content section {
