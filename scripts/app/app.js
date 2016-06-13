@@ -13,7 +13,7 @@
     var gridPad = undefined;
     projects.forEach(function (element, index, array) {
       var gridCell = document.createElement('div');
-      gridCell.setAttribute('class', 'col-1-4');
+      gridCell.setAttribute('class', 'col-1-4 mobile-col-1-2');
       gridCell.setAttribute('data-project-url', element.html_url);
 
       var div = document.createElement('div');
