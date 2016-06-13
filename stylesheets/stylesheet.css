@@ -31,7 +31,7 @@ a:hover {
   height: 50%;
   padding: 20ex 6em;
   position: relative;
-  width: 100vw;
+  width: 100%;
 
   background-image: linear-gradient(to right, #267871, #136a8a, #185a9d);
   background-size: cover;
@@ -110,6 +110,10 @@ ul.horizontal-nav {
   width: 48px;
 }
 
+.main-content:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
 .main-content section {
   margin: 0 auto;
   padding: 2rem 6rem;
@@ -131,6 +135,10 @@ ul.horizontal-nav {
 
 .container {
     padding: 20px 20px 0px 20px;
+}
+
+.grid-pad:last-of-type {
+    padding-bottom: 20px;
 }
 
 @media handheld, only screen and (max-width: 767px) {
