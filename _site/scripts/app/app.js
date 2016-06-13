@@ -14,12 +14,19 @@
     projects.forEach(function (element, index, array) {
       var gridCell = document.createElement('div');
       gridCell.setAttribute('class', 'col-1-4');
+      gridCell.setAttribute('data-project-url', element.html_url);
 
       var div = document.createElement('div');
       div.setAttribute('class', 'content card');
 
-      var txt = document.createTextNode(element.name + " : " + element.description);
+      var h3 = document.createElement('h3');
+      h3.setAttribute('class', 'project-name');
 
+      var h3Txt = document.createTextNode(element.name);
+      var txt = document.createTextNode(element.description);
+
+      h3.appendChild(h3Txt);
+      div.appendChild(h3);
       div.appendChild(txt);
       gridCell.appendChild(div);
 

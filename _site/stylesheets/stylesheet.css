@@ -117,4 +117,5 @@ ul.horizontal-nav {
 .card {
   height: 200px;
   background-color: #cacaca;
+  padding: 10px;
 }
