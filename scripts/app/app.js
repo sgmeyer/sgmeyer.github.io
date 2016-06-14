@@ -9,7 +9,7 @@
   }
 
   /**
-   * Constructs the project tiles. 
+   * Constructs the project tiles.
    **/
   var listProjects = function (projects) {
     var elm = document.getElementById('project-list');
@@ -17,14 +17,14 @@
     projects.forEach(function (element, index, array) {
       var gridCell = document.createElement('div');
       gridCell.setAttribute('class', 'col-1-4 mobile-col-1-2');
-      gridCell.setAttribute('data-project-url', element.html_url);  
+      gridCell.setAttribute('data-project-url', element.html_url);
 
       var languageIcon = languageIconService.getLanguageIcon(element.language);
       var template = '<div onclick="location.href=\'' + element.url + '\'" class="content card clickable center">'
                    +    '<svg class="icon" x="0px" y="0px" viewBox="' + languageIcon.viewBox + '"><use xlink:href="' + languageIcon.logoUrl + '#image"></use></svg>'
                    +    '<h3 class="project-name">' + element.name + "</h3>" + (element.description || '')
-                   + '</div>'; 
-   
+                   + '</div>';
+
       gridCell.innerHTML = template;
 
       if(index % 4 === 0) {
@@ -46,7 +46,7 @@
     languages.forEach(function (element, index, array) {
       var li = document.createElement('li');
       var a = document.createElement('a');
-      a.setAttribute('href', '#');
+      a.setAttribute('href', '#projects');
       a.setAttribute('data-project-language', element);
       a.onclick = languageOnClick;
       var txt = document.createTextNode(element);
