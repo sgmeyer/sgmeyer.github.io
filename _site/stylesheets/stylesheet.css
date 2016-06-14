@@ -125,7 +125,10 @@ ul.horizontal-nav {
   background-color: #cacaca;
   padding: 10px;
   overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.card:hover {
+  background-color: #9a9a9a;
 }
 
 .icon {
@@ -143,18 +146,18 @@ ul.horizontal-nav {
 
 @media handheld, only screen and (max-width: 767px) {
   .grid-pad:first-of-type {
-    padding-top: 10px;    
+    padding-top: 10px;
   }
-  
+
   .grid-pad {
     padding-top: 0px;
-  } 
-    
+  }
+
   .page-header {
     height: 50vh;
     padding: 10ex 3em;
   }
-  
+
   .page-header-name {
     font-size: 2rem;
   }
