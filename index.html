@@ -17,11 +17,11 @@ layout: default
    <div class="grid grid-pad center">
      <div class="col-1-3 mobile-col-1-2 center">
        <div>
-         <a href="https://twitter.com/sgmeyer">
+         <a href="{{ site.twitter_profile }}">
            <svg class="icon" x="0px" y="0px" viewBox="0 0 32 32"><use xlink:href="images/twitter.svg#image"></use></svg>
          </a>
        </div>
-       <div><a href="https://twitter.com/sgmeyer">@sgmeyer</a></div>
+       <div><a href="{{ site.twitter_profile }}">@{{ site.twitter_user }}</a></div>
      </div>
 
      <div class="col-1-3 mobile-col-1-2 center">
@@ -30,7 +30,7 @@ layout: default
            <svg class="icon" x="0px" y="0px" viewBox="0 0 32 32"><use xlink:href="images/github.svg#image"></use></svg>
          </a>
        </div>
-       <div><a href="https://github.com/sgmeyer">sgmeyer</a></div>
+       <div><a href="{{ site.github_profile }}">{{ site.github_user}}</a></div>
      </div>
 
      <div class="col-1-3 mobile-col-1-2 center">
@@ -40,7 +40,7 @@ layout: default
          </a>
        </div>
        <div>
-         <a href="mailto: sgmeyer@gmail.com?subject=Questions">sgmeyer@gmail.com</a>
+         <a href="mailto: {{ site.email_gmail }}?subject=Questions">{{ site.email_gmail }}</a>
        </div>
      </div>
    </div>

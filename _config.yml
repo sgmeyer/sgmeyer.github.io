@@ -8,6 +8,13 @@ title: Hey, I'm Shawn.
 subtitle: This is my stuff.
 gravatar_url: https://2.gravatar.com/avatar/d3afd8a2cfb725d584e2dc19d367f008
 
+#Email account
+email_gmail: sgmeyer@gmail.com
+
+#Twitter account
+twitter_user: sgmeyer
+twitter_profile: https://www.twitter.com/sgmeyer
+
 # Github repositories
 github_user: sgmeyer
 github_profile: https://www.github.com/sgmeyer
