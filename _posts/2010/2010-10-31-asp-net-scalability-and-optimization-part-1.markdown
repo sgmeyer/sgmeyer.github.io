@@ -4,6 +4,7 @@ title: "ASP.NET Scalability and Optimization Part 1"
 date: 2010-10-31 -0800
 comments: true
 categories: [ASP.NET, CDN, Optimization, ScriptManager]
+redirect_from: "/2010/10/asp-net-scalability-and-optimization-part-1"
 ---
 
 Lately I have been spending a lot of time optimizing a fairly high traffic .NET web application.  Over the last few months, performance has become a pretty big concern.  Based on current traffic, we are pushing our monthly bandwidth limitations while memory and server load continue to become a growing concern.
