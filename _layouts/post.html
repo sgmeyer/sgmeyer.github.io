@@ -1,10 +1,13 @@
 {% include head.html %}
   <body>
-    {% include _pageheader.html %}
+    {% include _pageheader.html %}   
     <article class="main-content grid grid-pad">
-      <h1>{{ page.title }}</h3>
-
-      {{ content }}
+      <p class="author">
+        {% include post/_date.html %}
+      </p>
+      <div class="content">
+        {{ content }}
+      </div>
     </article>
     {% include _footer.html %}
 

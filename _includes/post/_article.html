@@ -1,0 +1,9 @@
+<article class="main-content grid grid-pad">
+  <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+  <p class="author">
+    {% include post/_date.html %}
+  </p>
+  <div class="content">
+    {{ post.content }}
+  </div>
+</article>

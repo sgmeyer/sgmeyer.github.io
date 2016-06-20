@@ -27,10 +27,13 @@ disqus_show_comment_count: true
 # Google Analytics
 google_analytics_tracking_id: UA-15273574-1
 
+kramdown:
+  hard_wrap: false
+
 #
 # Jekyll Settings
 #
 permalink: /:year/:month/:title/
-#paginate: 20
-#paginate_path: "page/:num"
+paginate: 20
+paginate_path: "/blog/page/:num"
 category_dir: categories
