@@ -1,0 +1,29 @@
+#
+# Blog Settings
+#
+author: Shawn G. Meyer
+description: learn. evolve. code.
+url: http://haacked.com
+title: Hey, I'm Shawn.
+subtitle: This is my stuff.
+gravatar_url: https://2.gravatar.com/avatar/d3afd8a2cfb725d584e2dc19d367f008
+
+# Github repositories
+github_user: sgmeyer
+github_profile: https://www.github.com/sgmeyer
+github_repo_url: https://github.com/sgmeyer/sgmeyer.github.io/
+
+# Disqus Comments
+disqus_short_name: sgmeyer
+disqus_show_comment_count: true
+
+# Google Analytics
+google_analytics_tracking_id: UA-15273574-1
+
+#
+# Jekyll Settings
+#
+permalink: /:year/:month/:title/
+#paginate: 20
+#paginate_path: "page/:num"
+category_dir: categories
