@@ -41,7 +41,7 @@ YSlow has a category that grades your usage of a CDN.  Many developers ignore t
 Our application uses the Microsoft AJAX Library’s JavaScript, which is managed by a ScriptManager control.  Since we are hosting the AJAX libraries we spend our own bandwidth to host these files.  Through the use of the ScriptManager we can take advantage of the Microsoft CDN to host the AJAX Libraries.  This technique does not reduce the amount of data downloaded by a user, unless previously cached.  Instead, we are now using Microsoft’s bandwidth to host those files rather than our own.   Hosting on a CDN provides other benefits such as localized content and quicker page loads.
 
 ```xml
-<asp:ScriptManager ID="ScriptManager1" EnableCdn=”true" runat="server">
+<asp:ScriptManager ID="ScriptManager1" EnableCdn="true" runat="server">
 </asp:ScriptManager>
 ```
 It is important to note that we now have a dependency on Microsoft’s CDN.  If the CDN is not available your AJAX files will also be unavailable.  As unlikely as it may seem it is important to know the risks no matter how marginal they may appear.
@@ -51,7 +51,7 @@ It is important to note that we now have a dependency on Microsoft’s CDN.  If
 Now that that we have taken a big bite out of the bandwidth usage; I took one last step to reduce the number of HTTP requests.  As mentioned earlier I had a number of small JavaScript files that I wanted to combine into a single file.  Again, I can rely on ScriptManager to combine these files for me.  As a side note, the ScriptManager is more efficient at combining assembly-based JavaScript when compared to path-based scripts.
 
 ```xml
-<asp:ScriptManager EnableCdn=”true”>
+<asp:ScriptManager EnableCdn="true">
   <CompositeScript>
     <Scripts>
       <asp:ScriptReference Path="script1.js" />
@@ -66,7 +66,7 @@ Be cautious when combining scripts.  This is not a silver bullet.  Combining t
 As a side note, you can leverage the ScriptManager to combine scripts even if you do not want to host the AJAX Library.  The ScriptManager exposes an enumeration allowing the developer to leverage the benefit of ScriptManager without hosting the AJAX Library.
 
 ```xml
-<asp:ScriptManager AjaxFrameworkMode=”Enable|Disable|Explicit”></asp:ScriptManager>
+<asp:ScriptManager AjaxFrameworkMode="Enable|Disable|Explicit"></asp:ScriptManager>
 ```
 
 More details can be found <a href="http://msdn.microsoft.com/en-us/library/system.web.ui.ajaxframeworkmode.aspx">here</a> and <a href="http://msdn.microsoft.com/en-us/library/system.web.ui.scriptmanager.ajaxframeworkmode.aspx">here</a>.
