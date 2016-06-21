@@ -4,9 +4,11 @@ title: "Only You Can Prevent Crap Code"
 date: 2013-01-24 -0800
 comments: true
 categories: [Rant]
-redirect_from: 
+disqus_identifier: 142
+redirect_from:
   -  "/2013/01/only-you-can-prevent-crap-code"
   -  "/2013/01/only-you-can-prevent-crap-code/"
+  -  "/?p=142"
 ---
 
 Over the last few years I have evangelized about writing clean code.  I have read numerous resources, talked to developers, and spent time developing.  I have felt the pain of an ugly system, I have felt the love of beautiful code, and I have brought down pain and misery upon future developers.   Recently, I have reflected on the last eight years of my professional career and I realized why I obsess about clean code.   For me it comes down to respecting other developers and respecting my users.
