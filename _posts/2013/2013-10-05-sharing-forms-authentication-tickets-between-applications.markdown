@@ -19,7 +19,7 @@ When a user originally authenticates with the application from the Identity Prov
 
 <strong>The Authentication Ticket:</strong>
 
-The basic purpose of the Authentication Ticket is to tell your web application who you are and that you are authenticated. When using forms authentication, each authenticated user will have a forms authentication ticket. This ticket is encrypted, signed, and then stored in a cookie (I am ignoring cookieless configurations). It is also important to know, ASP.NET uses the Machine Key secure your authentication cookie. According to the MSDN .NET 1.0 and 1.1 are different than .NET 2.0 and later. For the purpose of this article we are going to assume .NET 4.5, but I will mention a configuration for .NET 2.0 SP1. For more information on authentication tickets check out the MSDN article <a href="http://support.microsoft.com/kb/910441">http://support.microsoft.com/kb/910441</a>.
+The basic purpose of the Authentication Ticket is to tell your web application who you are and that you are authenticated. When using forms authentication, each authenticated user will have a forms authentication ticket. This ticket is encrypted, signed, and then stored in a cookie (I am ignoring cookie-less configurations). It is also important to know, ASP.NET uses the Machine Key secure your authentication cookie. According to the MSDN .NET 1.0 and 1.1 are different than .NET 2.0 and later. For the purpose of this article we are going to assume .NET 4.5, but I will mention a configuration for .NET 2.0 SP1. For more information on authentication tickets check out the MSDN article <a href="http://support.microsoft.com/kb/910441">http://support.microsoft.com/kb/910441</a>.
 
 <strong>Configuring Forms Authentication</strong>
 
