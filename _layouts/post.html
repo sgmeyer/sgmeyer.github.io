@@ -1,6 +1,6 @@
-{% include head.html %}
+{% include _head.html %}
   <body>
-    {% include _pageheader.html %}   
+    {% include _pageheader.html %}
     <article class="main-content grid grid-pad">
       <p class="author">
         {% include post/_date.html %}
@@ -12,5 +12,6 @@
     {% include _footer.html %}
 
     <script src="/scripts/libs/svgforeverybody.min.js"></script>
+    {% include _analytics.html %}
   </body>
 </html>
