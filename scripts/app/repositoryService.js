@@ -1,13 +1,15 @@
 (function(window, nanoajax, JSON, undefined) {
   'use strict';
 
-  var repositoriesUrl = 'https://api.github.com/users/sgmeyer/repos';
+  var repositoriesUrl = 'https://api.github.com/users/sgmeyer/repos1';
+  var cachedRepositoriesUrl = '/repos.json';
   var repositoryResponseCode = undefined;
   var repositoryResponseText = undefined;
   var repositoryService = window.repositoryService || {};
+  var sentinel = false;
 
   var getLanguages = function(success, error) {
-    var repositoryCallback = function (code, responseText) {
+    var repositoryCallback = function (code, responseText, xhr, retrySentinel) {
       var languages = new Set();
       var responseObject = {};
       repositoryResponseCode = code;
@@ -22,8 +24,13 @@
         });
 
         success(Array.from(languages));
+      } else if (!retrySentinel) {
+
+        nanoajax.ajax({url: cachedRepositoriesUrl}, function (code, responseText, xhr) {
+          repositoryCallback(code, responseText, xhr, true)
+        });
       } else if (error) {
-        error('Failed to get languages.');
+        error("Failed to download repository.");
       }
     };
 
