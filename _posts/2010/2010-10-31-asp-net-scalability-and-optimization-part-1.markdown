@@ -3,8 +3,8 @@ layout: post
 title: "ASP.NET Scalability and Optimization Part 1"
 date: 2010-10-31 -0800
 comments: true
-categories: [ASP.NET, CDN, Optimization, ScriptManager]
-redirect_from: 
+categories: [ASP.NET, Scalability, Session]
+redirect_from:
   -  "/2010/10/asp-net-scalability-and-optimization-part-1"
   -  "/2010/10/asp-net-scalability-and-optimization-part-1/"
 ---

@@ -3,7 +3,7 @@ layout: post
 title: "Sharing Forms Authentication Tickets Between Applications"
 date: 2013-10-05 -0800
 comments: true
-categories: [ASP.NET, CDN, Optimization, ScriptManager]
+categories: [ASP.NET, Security, Forms Authentication]
 disqus_identifier: 178 http://www.shawnmeyer.com/?p=178
 redirect_from:
   -  "/2013/10/sharing-forms-authentication-tickets-between-applications"
