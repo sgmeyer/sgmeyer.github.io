@@ -1,7 +1,7 @@
 (function(window, nanoajax, JSON, undefined) {
   'use strict';
 
-  var repositoriesUrl = 'https://api.github.com/users/sgmeyer/repos1';
+  var repositoriesUrl = 'https://api.github.com/users/sgmeyer/repos';
   var cachedRepositoriesUrl = '/repos.json';
   var repositoryResponseCode = undefined;
   var repositoryResponseText = undefined;
