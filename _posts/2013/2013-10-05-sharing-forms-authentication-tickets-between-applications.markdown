@@ -6,8 +6,8 @@ comments: true
 categories: [ASP.NET, CDN, Optimization, ScriptManager]
 disqus_identifier: 178 http://www.shawnmeyer.com/?p=178
 redirect_from:
-  -  "/2010/10/sharing-forms-authentication-tickets-between-applications"
-  -  "/2010/10/sharing-forms-authentication-tickets-between-applications/"
+  -  "/2013/10/sharing-forms-authentication-tickets-between-applications"
+  -  "/2013/10/sharing-forms-authentication-tickets-between-applications/"
   -  "/?p=178"
 ---
 
