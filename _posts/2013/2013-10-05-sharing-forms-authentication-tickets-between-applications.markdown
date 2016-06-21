@@ -23,31 +23,33 @@ The basic purpose of the Authentication Ticket is to tell your web application w
 
 <strong>Configuring Forms Authentication</strong>
 
-<div>
-
-&lt;system.web&gt;
-&nbsp;&nbsp;&lt;machineKey validationKey="validationKeyA" decryptionKey="decryptionKeyA" validation="SHA1" decryption="AES" /&gt;
-&nbsp;&nbsp;&lt;authentication mode="Forms"&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;forms name=".ASPXAUTH" domain="shawnmeyer.com"&gt;&lt;/forms&gt;
-&nbsp;&nbsp;&lt;/authentication&gt;
-&lt;/system.web&gt;
-
-</div>
+```xml
+<system.web>
+  <machineKey validationKey="validationKeyA" decryptionKey="decryptionKeyA" validation="SHA1" decryption="AES" />
+  <authentication mode="Forms">
+    <forms name=".ASPXAUTH" domain="shawnmeyer.com"></forms>
+  </authentication>
+</system.web>
+```
 
 This configuration needs to be configured in every application's Web.config file. The machineKey node is used to allow applications to read the authentication ticket across sites. If one of your applications is a .NET 2.0 application that was if it was upgraded to .NET 4.5 and it still uses the legacy mode you might need to add the compatibilityMode="Framework20SP1" attribute to the machineKey element to all applications. If not then you can ignore this attribute.
 
 The authentication element is where we configure forms authentication. The child element is used to set the properties of forms authentication. Each application must have the same name as this is what the cookie will be named. If your applications live in the same subdomain you can ignore that attribute, however if they live across multiple subdomains and the same domain you will need to set the domain without a subdomain.
 
-Troubleshooting:
+<strong>Troubleshooting:</strong>
 <ol>
 	<li>If your browser is not sending the cookie this might be caused by the domain attribute needing to be set. When reading the cookie the domain should read '.shawnmeyer.com' and the web.config attribute for domain should read domain="shawnmeyer.com".</li>
 	<li>If your browser is sending the cookie, but the cookie does not show up in the server's HttpCookieCollection it means the cookie is probably not passing validation. Ensure the machineKey elements match across each application. If they do match you should ensure they are using the same compatibility mode.</li>
 </ol>
+
 <strong>Creating the cookie</strong>
 
 In the application that hands authentication you can create and store the authentication ticket. This will setup the cookie and ticket so it can be consumed by each application.
-<pre name="code" class="c#">// Gets the cookie
+
+```cs
+// Gets the cookie
 var cookie = FormsAuthentication.GetAuthCookie(username, rememberMe);
+
 
 // Gets an authentication ticket with the appropriate default and configured values.
 var ticket = FormsAuthentication.Decrypte(cookie.Value);
@@ -61,11 +63,15 @@ var newTicket = new FormsAuthenticationTicket(
 
 var encryptedTicket = FormsAuthentication.Encrypt(newTicket);
 cookie.Value = encryptedTicket;
-Response.Cookies.Add(cookie);</pre>
+Response.Cookies.Add(cookie);
+```
+
 <strong>Reading the Authentication Ticket from the Cookie</strong>
 
 To read the cookie you can use this code.
-<pre name="code" class="c#">Var cookieName = FormsAuthentication.FormsCookieName;
+
+```cs
+var cookieName = FormsAuthentication.FormsCookieName;
 var authCookie = Request.Cookies[cookieName];
 
 // This could throw an exception if it fails the decryption process. Check MachineKeys for consistency.
@@ -73,7 +79,9 @@ var authenticationTicket = FormsAuthentication.Decrypt(authCookie.Value);
 
 // Retrieve information from the ticket
 var username = authenticationTicket.Name;
-var userData = authenticationTicket.UserData;</pre>
+var userData = authenticationTicket.UserData;
+```
+
 <strong>Magic</strong>
 
 Once you have these applications configured to share the authentication ticket. From this point we can more seamlessly handle authentication between sites. Enjoy!
