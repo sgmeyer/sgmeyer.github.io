@@ -90,7 +90,6 @@ ul.horizontal-nav {
 
 .horizontal-nav li {
   display: inline-block;
-  float: unset;
 }
 
 .horizontal-nav li:hover {
@@ -159,7 +158,7 @@ ul.horizontal-nav {
     padding-bottom: 20px;
 }
 
-@media handheld, only screen and (max-width: 767px) {
+@media handheld, only screen and (max-width: 767px)  {
   .grid-pad:first-of-type {
     padding-top: 10px;
   }
@@ -208,6 +207,12 @@ ul.horizontal-nav {
   }
 }
 
+@media handheld, only screen and (max-width: 767px) and (orientation : landscape) {
+    .page-header {
+    min-height: 300px;
+  }
+}
+
 /** Utilities **/
 .center {
   text-align: center;
@@ -215,11 +220,10 @@ ul.horizontal-nav {
 
 .clickable {
   cursor: pointer;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;           /* Non-prefixed version, currently
-                                  not supported by any browser */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none; 
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
