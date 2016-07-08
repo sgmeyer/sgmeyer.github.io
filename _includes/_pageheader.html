@@ -1,7 +1,5 @@
 <section class="page-header">
   <h1 class="page-header-name">{% if page.title %}{{ page.title}}{% else %}{{ site.title }}{% endif %}</h1>
   <h2 class="page-header-tagline">{% if page.title == null %}{{ site.subtitle }}{% endif %}</h2>
-  {% if page.title == null %}
-    {% include _homenav.html %}
-  {% endif %}
+  {% include _homenav.html %}
 </section>

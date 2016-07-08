@@ -1,24 +1,23 @@
-{% include _head.html %}
-  <body>
-    {% include _pageheader.html %}
-    <article class="main-content grid grid-pad">
-      <p class="author">
-        {% include post/_date.html %}
-      </p>
-      <div class="content">
-        {{ content }}
-      </div>
-    </article>
-    {% if site.disqus_short_name and page.comments == true %}
-    <section id="comment" class="grid grid-pad">
-        <h1 class="title">Comments</h1>
-        <div id="disqus_thread" aria-live="polite"></div>
-    </section>
-    {% endif %}
-    {% include _footer.html %}
+---
+layout: default
+---
 
-    <script src="/scripts/libs/svgforeverybody.min.js"></script>
-    {% include _analytics.html %}
-    {% include _comments.html %}
-  </body>
-</html>
+<article class="main-content grid grid-pad">
+    <p class="author">
+    {% include post/_date.html %}
+    </p>
+    <div class="content">
+    {{ content }}
+    </div>
+</article>
+{% if site.disqus_short_name and page.comments == true %}
+<section id="comment" class="grid grid-pad">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"></div>
+</section>
+{% endif %}
+{% include _footer.html %}
+
+<script src="/scripts/libs/svgforeverybody.min.js"></script>
+{% include _analytics.html %}
+{% include _comments.html %}
