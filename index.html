@@ -3,9 +3,10 @@ layout: default
 ---
 
 <section id="projects" class="main-content">
-  <nav>
-    <ul id="project-languages" class="horizontal-nav">
-    </ul>
+  <nav class="scrollable-horizontal">
+    <span class="scroll-left clickable" data-scroll-direction="left" data-scrollable-list="projects">&lt;</span>
+    <ul id="project-languages" class="horizontal-nav"></ul>
+    <span class="scroll-right clickable" data-scroll-direction="right" data-scrollable-list="projects">&gt;</span>
   </nav>
   <div id="project-list">
   </div>
@@ -30,7 +31,7 @@ layout: default
            <svg class="icon" x="0px" y="0px" viewBox="0 0 32 32"><use xlink:href="images/github.svg#image"></use></svg>
          </a>
        </div>
-       <div><a href="{{ site.github_profile }}">{{ site.github_user}}</a></div>
+       <div><a href="{{ site.github_profile }}">{{ site.github_username}}</a></div>
      </div>
 
      <div class="col-1-3 mobile-col-1-2 center">

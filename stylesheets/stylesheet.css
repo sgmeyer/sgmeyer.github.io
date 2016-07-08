@@ -39,7 +39,7 @@ a:hover {
 
 .page-header-name {
   font-size: 3.25rem;
-  margin: 0px;
+  margin: 0;
   text-align: center;
 }
 
@@ -80,11 +80,12 @@ a:hover {
 ul.horizontal-nav {
   background-color: #242424;
   list-style-type: none;
-  margin: 0;
+  margin: 0 42px;
   height: 50px;
   padding: 0;
   overflow: hidden;
   text-align: center;
+  position: relative;
 }
 
 .horizontal-nav li {
@@ -101,8 +102,18 @@ ul.horizontal-nav {
   display: inline-block;
   height: 100%;
   fill: #fafafa;
-  padding: 11px 16px;
+  padding: 13px 16px;
   text-decoration: none;
+}
+
+.scrollable-horizontal {
+    background-color: #242424;
+    position: relative;
+}
+
+.scroll-left,
+.scroll-right {
+  display: none;
 }
 
 .global-nav .horizontal-nav li a svg {
@@ -123,8 +134,12 @@ ul.horizontal-nav {
 .card {
   height: 220px;
   background-color: #cacaca;
-  padding: 10px;
   overflow: hidden;
+}
+
+.card .content {
+    margin: 10px;
+    overflow: hidden;
 }
 
 .card:hover {
@@ -166,13 +181,45 @@ ul.horizontal-nav {
     font-size: 1.25em;
     margin: .5ex 0px 0px 0px;
   }
+  
+  .scroll-left,
+  .scroll-right {
+    background-color: #242424;
+    color: #fafafa;
+    display: inline-block;
+    padding: 13px 16px;
+    position: absolute;
+    font-weight: bold;
+    top: 0;
+    z-index: 10;
+  }
+
+  .scroll-left:hover,
+  .scroll-right:hover {
+    background-color: #3c3c3c;
+  }
+
+  .scroll-left {
+    left: 0;
+  }
+
+  .scroll-right {
+    right: 0;
+  }
 }
 
 /** Utilities **/
 .center {
-    text-align: center;
+  text-align: center;
 }
 
 .clickable {
-    cursor: pointer;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
 }
