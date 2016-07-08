@@ -146,16 +146,31 @@ ul.horizontal-nav {
 }
 
 .icon {
-    height: 64px;
-    width: 64px;
+  height: 64px;
+  width: 64px;
 }
 
 .container {
-    padding: 20px 20px 0px 20px;
+  padding: 20px 20px 0px 20px;
 }
 
 .grid-pad:last-of-type {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+/***
+ * Post pagination
+ ***/
+.pagination {
+  position: relative;
+}
+
+.pagination-next {
+  float: right;
+}
+
+.pagination-previous {
+  float: left;
 }
 
 @media handheld, only screen and (max-width: 767px)  {
@@ -226,4 +241,20 @@ ul.horizontal-nav {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.button,
+.button-disabled{
+  font-weight: bold;
+  padding: 5px 15px;  
+}
+
+.button {
+  background-color: #1e6bb8;
+  color: #fafafa;
+}
+
+.button-disabled {
+  background-color: #cacaca;
+  color: #9a9a9a;
 }

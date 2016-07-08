@@ -34,7 +34,7 @@ kramdown:
 # Jekyll Settings
 #
 permalink: /blog/:year/:month/:title/
-paginate: 10
+paginate: 5
 paginate_path: "/blog/page/:num"
 category_dir: categories
 
