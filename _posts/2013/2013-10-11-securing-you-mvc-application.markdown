@@ -13,7 +13,7 @@ When building an MVC application authentication is an important part when securi
 
 If you recall from the last post the secondary application delegates the authentication and credential verification.  Instead of using a form for the user to enter credentials, we validate the authentication ticket and establish the principal and identity.  This can be done in the Application_AuthenticateRequest method.
 
-```cs
+```csharp
 // This is the Global.asax.cs file
 public class MyApplicatoin : HttpApplication
 {
@@ -41,7 +41,7 @@ public class MyApplicatoin : HttpApplication
 
 Once the authentication mechanism is in place we can handle the authorization by decorating controllers or actions with the AuthorizeAttribute.  By tagging the controller with the AuthorizeAttribute we are saying that any action in this class will require the user to be authenticated.  Since we did not provide any roles to the attribute it just prevents access to anonymous users.  This is all good until you want to allow certain actions in a controller to be accessible by anonymous users such as a login action.  We can enable anonymous users by tagging actions with the AllowAnonymousAttribute.
 
-```cs
+```csharp
 [Authorize]
 public class AccountController : Controller
 {
@@ -61,7 +61,7 @@ public class AccountController : Controller
 
 This model for authorization seems pretty good until we want to add another protected controller.  When adding another controller we realize we could easily forget to add the AuthorizeAttribute to the new controller or maybe another developer adds a controller and is not aware how to protect the code.
 
-```cs
+```csharp
 public class AdminController : Controller
 {
     public ActionResult Index()
@@ -78,7 +78,7 @@ public class AdminController : Controller
 
 You or a another developer could easily miss this detail.  Now sensitive functionality is exposed to anonymous users and your application is just waiting to be compromised.  We can avoid these mistakes by implementing a global filter.  Instead of each controller and action opting into requiring authorization all controllers will require authorization and controls needing anonymous access must be tagged to opt out of requiring authorization.
 
-```cs
+```csharp
 public class FilterConfig
 {
     public static void RegisterGlobalFilter(GlobalFilterCollection filters)

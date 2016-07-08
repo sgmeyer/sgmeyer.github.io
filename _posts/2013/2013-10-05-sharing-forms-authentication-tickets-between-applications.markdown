@@ -46,7 +46,7 @@ The authentication element is where we configure forms authentication. The child
 
 In the application that hands authentication you can create and store the authentication ticket. This will setup the cookie and ticket so it can be consumed by each application.
 
-```cs
+```csharp
 // Gets the cookie
 var cookie = FormsAuthentication.GetAuthCookie(username, rememberMe);
 
@@ -70,10 +70,7 @@ Response.Cookies.Add(cookie);
 
 To read the cookie you can use this code.
 
-```cs
-var cookieName = FormsAuthentication.FormsCookieName;
-var authCookie = Request.Cookies[cookieName];
-
+```csharp
 // This could throw an exception if it fails the decryption process. Check MachineKeys for consistency.
 var authenticationTicket = FormsAuthentication.Decrypt(authCookie.Value);
 

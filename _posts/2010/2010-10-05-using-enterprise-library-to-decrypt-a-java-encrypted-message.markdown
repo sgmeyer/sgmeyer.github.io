@@ -37,7 +37,7 @@ public String encrypt(String auth) {
 
 From the code above you can see we have a method that performs a pretty basic encryption.  Now let us look at the .NET code we will use to decrypt the message encrypted using the above method.
 
-```cs
+```csharp
 string message = Cryptographer.DecryptSymmetric(“RijndaelManaged”, encryptedText);
 ```
 
