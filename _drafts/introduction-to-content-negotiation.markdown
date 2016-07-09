@@ -106,8 +106,7 @@ Content-Length: 47
 {"FirstName":"Some","LastName":"Dewd","Age":30}
 ```
 
-This time, I will make a call to the GitHub Repository API requesting a media type application/xml.  GitHub does not support the XML media type and their server will not default to use a supported media type formatter.  Instead it
-returns an error message to the user in JSON. 
+ASP.NET is just one technology of many for building web services.  GitHub also uses server-drive content negotiation, but implments other behavior.  For example, unlike ASP.NET WebAPI's default behavior, GitHub does not revert to a default media type if one requests an unsupported media type.  Instead, GitHub opts to respond with an error formatted in JSON.
 
 ```
 GET /user/sgmeyer/repos HTTP/1.1
@@ -142,11 +141,4 @@ X-GitHub-Request-Id: 325142E0:2FFB:80ACDE9:5780FAC2
 }
 ```
 
-Content negotiation is a great way to allow developers consuming your web services control over how they consume your data.  Today, it is wildly popular to use JSON media type, however
-some developers still prefer XML.  Utilizing content negotiation can be a great way to provide conveniences to developers that want to consume your services.
-
-Content negotiation goes further than media type.  One can also request languages.  For example, let's say we are creating a CMS as as sevice.  We might have an API endpoint that retrieves
-content by id.  We want to retrieve content in english we could use the Accept-Language header to ask for content in different languages.  The CMS web service could consume this header and
-make a decision to respond with the content in various languages.
-
-Content negotiation is a very powerful tool.  To read the detailed W3C specicifation you can visit the site: https://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html.
+Content negotiation is a great way to improve the developer experience of your API.  You can provide conveniences for your customers by allowing them to help drive the format of data coming back from the service.  There are many ways to implement content negotiation, but when understood it can be a power tool as a developer.
