@@ -1,0 +1,152 @@
+---
+layout: post
+title: "Introduction to Content Negotiation"
+date: 
+comments: true
+categories: [HTTP, Content Negotiation]
+published: false
+---
+
+Content Negotiation, simply put, is a way for a client and/or server to determine how content is requested and received over HTTPS (or HTTP, please be kind use HTTPS).  Fortunately, for developers, content negotiation has been defined by the W3C and you can find the specification on their site (https://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html).  There are three types of content negotiation, but for the purpose of this article we'll focus on server-driven negotiation.  That is when the agent or client requests content using HTTP headers to help the server make decisions on how to format the data to send back to the client.  Here are some of the headers that can be used in content negotiation: Accept, Accept-Charset, Accept-Encoding, Accept-Language, Content-Type, and User-Agent.  The specification also states content negotiation can be determined by other factors, but these are the most common.
+
+The fastest way to see content negotiation in action is to open up Chrome development tools, navigate to the network tab, and go to any website.  If you click on the requst you will notice Chrome automatically populates the Accept, Accept-Encoding, Accept-Language, and User-Agent headers with the values below.  These two headers are how Chrome negotiates with the server how it prefers to recieve content for the given request.
+
+```
+GET / HTTP/1.1
+Host: www.google.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding: gzip, deflate, sdch, br
+Accept-Language: en-US,en;q=0.8
+```
+
+Let's break this down a bit.  The **User-Agent** is self explanitory.  It simply states it is a request coming from Chrome.  Typically, this doens't play a big role in content negotiation, but it certainly could.  The **Accept** header is used to specify the media type for the data returned in the body of the response.  The **Accept** header states a weighted preference for the media types it desires.  In this example Chrome is request HTML, then xhtml, then xml as it highest preference.  After that, Chrome will accept an image/wp next followed by anything.  Chrome uses the **Accept-Encoding** header to specificy how it wants the response encoded.  Finally, it asks for the en-US language first otherwise a non-localized version of English second using hte **Accept-Language** header.
+
+If the server, if using server-driven negotiation, can opt to take any of these headers into account when making a decision on how to return the content.  It is important to note the user agent or client does not control how content is returned.  It simply declares preferences with each request.  In server-driven content negotiation the server's algorithm is reponsible for making a determination.  Most servers will look at these HTTP headers when deciding how to format content on the response.
+
+As developers we often time need to know more about content negotiation when building HTTPS (or HTTP, like above, please be kind as use HTTPS) based services.  After consuming various APIs and web services it becomes apparent quickly that many web services have different implmentations and limitations with content negotiation.
+
+## Experimenting with content negotiation and the bits
+
+Using Postman, I generated this request to an ASP.NET Web API running locally. The request uses the Accept HTTP header requesting the server respond with XML.
+
+```
+GET /api/Person HTTP/1.1
+Host: localhost:65307
+Accept: application/xml
+Cache-Control: no-cache
+```
+
+By default, ASP.NET responded with the xml media type.  The server made its decision based on the Accept header.  .NET has a more complex set of rules than this, which we'll dig deeper into in a future article.
+
+```
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/xml; charset=utf-8
+Expires: -1
+Server: Microsoft-IIS/10.0
+X-AspNet-Version: 4.0.30319
+X-SourceFiles: =?UTF-8?B?XFxnY2MuaW50XHVzZXJzXGhvbWVcc2hhd25tXHZpc3VhbCBzdHVkaW8gMjAxNVxQcm9qZWN0c1xEZW1vXERlbW9cYXBpXFBlcnNvbg==?=
+X-Powered-By: ASP.NET
+Date: Sat, 09 Jul 2016 11:27:20 GMT
+Content-Length: 194
+
+<Person xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Demo.Models"><Age>30</Age><FirstName>Some</FirstName><LastName>Dewd</LastName></Person>
+```
+
+Today, many developers prefer to use parse JSON.  If you wanted to get the same data above, but preferred JSON as a data type you can modify the previous request.  The only thing that will change is the Accept HTTP header.
+```
+GET /api/Person HTTP/1.1
+Host: localhost:65307
+Accept: application/json;q=0.9,application/xml;q=0.8
+Cache-Control: no-cache
+```
+
+As you can see the server responded with equivalent data, but instaed of xml we received JSON.
+
+```
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+Expires: -1
+Server: Microsoft-IIS/10.0
+X-AspNet-Version: 4.0.30319
+X-SourceFiles: =?UTF-8?B?XFxnY2MuaW50XHVzZXJzXGhvbWVcc2hhd25tXHZpc3VhbCBzdHVkaW8gMjAxNVxQcm9qZWN0c1xEZW1vXERlbW9cYXBpXFBlcnNvbg==?=
+X-Powered-By: ASP.NET
+Date: Sat, 09 Jul 2016 11:34:22 GMT
+Content-Length: 47
+
+{"FirstName":"Some","LastName":"Dewd","Age":30}
+```
+
+To show off more interesting behavior in ASP.NET's server-driven content negotiation we can provide a media type the server does not support by default.  Optionally, if you leave off the Accept HTTP header you will get the same result.  In the .NET content negotiation algorithm it will pick its default media type.
+
+```
+GET /api/Person HTTP/1.1
+Host: localhost:65307
+Accept: text/html
+Cache-Control: no-cache
+```
+
+```
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+Expires: -1
+Server: Microsoft-IIS/10.0
+X-AspNet-Version: 4.0.30319
+X-SourceFiles: =?UTF-8?B?XFxnY2MuaW50XHVzZXJzXGhvbWVcc2hhd25tXHZpc3VhbCBzdHVkaW8gMjAxNVxQcm9qZWN0c1xEZW1vXERlbW9cYXBpXFBlcnNvbg==?=
+X-Powered-By: ASP.NET
+Date: Sat, 09 Jul 2016 13:16:56 GMT
+Content-Length: 47
+
+{"FirstName":"Some","LastName":"Dewd","Age":30}
+```
+
+This time, I will make a call to the GitHub Repository API requesting a media type application/xml.  GitHub does not support the XML media type and their server will not default to use a supported media type formatter.  Instead it
+returns an error message to the user in JSON. 
+
+```
+GET /user/sgmeyer/repos HTTP/1.1
+Host: api.github.com
+Accept: application/xml
+Cache-Control: no-cache
+```
+
+```
+HTTP/1.1 415 Unsupported Media Type
+Server: GitHub.com
+Date: Sat, 09 Jul 2016 13:23:14 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 167
+Status: 415 Unsupported Media Type
+X-GitHub-Media-Type: unknown
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 58
+X-RateLimit-Reset: 1468074180
+Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'none'
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 325142E0:2FFB:80ACDE9:5780FAC2
+
+{
+  "message": "Unsupported 'Accept' header: [\"application/xml\"]. Must accept 'application/json'.",
+  "documentation_url": "https://developer.github.com/v3/media"
+}
+```
+
+Content negotiation is a great way to allow developers consuming your web services control over how they consume your data.  Today, it is wildly popular to use JSON media type, however
+some developers still prefer XML.  Utilizing content negotiation can be a great way to provide conveniences to developers that want to consume your services.
+
+Content negotiation goes further than media type.  One can also request languages.  For example, let's say we are creating a CMS as as sevice.  We might have an API endpoint that retrieves
+content by id.  We want to retrieve content in english we could use the Accept-Language header to ask for content in different languages.  The CMS web service could consume this header and
+make a decision to respond with the content in various languages.
+
+Content negotiation is a very powerful tool.  To read the detailed W3C specicifation you can visit the site: https://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html.
