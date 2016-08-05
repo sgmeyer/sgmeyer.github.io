@@ -8,7 +8,6 @@ disqus_identifier: 178 http://www.shawnmeyer.com/?p=178
 redirect_from:
   -  "/2013/10/sharing-forms-authentication-tickets-between-applications"
   -  "/2013/10/sharing-forms-authentication-tickets-between-applications/"
-  -  "/?p=178"
 ---
 
 Recently, I ran across a fun challenge. I have an application modularized across multiple websites. I also need to allow users to navigate between these applications seamlessly with a single authentication mechanism or a single sign on and minimal HTTP redirects. What I have traditionally done is link the two applications using some form of SSO (e.g. encrypted query strings or SAML). My personal opinion is that these solutions are ideal when talking between two separate entities such as integration between two websites owned by two different organizations. After thinking about this problem I wanted to eliminate redirecting the user for SSO purposes. Consider my typical scenario.
