@@ -30,7 +30,7 @@ To setup some of the enhancements, I moved the inline JavaScript into a file.  
 My first priority was to decrease the size of the JavaScript files.  If you are not already familiar with minifying it is the process of reducing the size of HTML, CSS, or JavaScript.  There are many free tools available to minify JavaScript.  I chose to use the Microsoft AJAX Minifier.  Using the command below, I was able to minify all of the JavaScript files.  For simplicity's sake I am running the minifier manually, but it is possible to integrate the tool within Visual Studio 2010 (<a href="http://stephenwalther.com/blog/archive/2009/10/16/using-the-new-microsoft-ajax-minifier.aspx">Using the New Microsoft AJAX Minifier</a>).
 
 ```
-ajaxmin &#45;hc scriptName.debug.js &#45;out scriptName.js
+ajaxmin -hc scriptName.debug.js -out scriptName.js
 ```
 
 This script takes advantage of Hyper Crunching (-hc), which is an aggressive minifying feature provided by the Microsoft AJAX Minifier.  This performs basic file reduction by removing whitespace and unneeded characters.  It also reduces non-global variable names, extra curly braces, dead code, and more.  As a precaution always test the minified JavaScript prior to deploying.
