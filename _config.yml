@@ -38,5 +38,5 @@ paginate: 5
 paginate_path: "/blog/page/:num"
 category_dir: categories
 
-gems:
+plugins:
   - jekyll-redirect-from
