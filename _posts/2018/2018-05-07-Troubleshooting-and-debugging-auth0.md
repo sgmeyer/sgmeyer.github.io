@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Debugging and Troubleshoot Auth0"
-published: false
 date: 2018-05-07 -0800
 comments: true
 categories: [Auth0, Debugging]
@@ -12,7 +11,7 @@ I have talked to a number of people about debugging and troubleshooting issues w
 
 ## Production Issues
 
-Auth0 makes it simple to build authentication and authorization into your product, but sometimes things can go wrong or users can stumble into unexpected workflows.  When these bugs happen we want to be able to identify the problem and respond quickly.  Fortunately, Auth0 provides a nice log function that can provide the details we need.  For nearly all user and dashboard admin actions in your tenant (successful/failed login, success/failed code exchange, forgot password, etc) Auth0 logs information regarding these interaction.  Take a look at [Auth0's Data Event Listing](https://auth0.com/docs/logs#log-data-event-listing) document for a full list of all the events.
+Auth0 makes it simple to build authentication and authorization into your product, but sometimes things can go wrong or users can stumble into unexpected workflows.  When these bugs happen we want to be able to identify the problem and respond quickly.  Fortunately, Auth0 provides a nice log function that expose the details we need.  For nearly all user and dashboard admin actions in your tenant (successful/failed login, success/failed code exchange, forgot password, etc) Auth0 logs information regarding these interaction.  Take a look at [Auth0's Data Event Listing](https://auth0.com/docs/logs#log-data-event-listing) document for a full list of all the events.
 
 This is pretty straight forward.  Using these logs you can monitor and search for failures and information regarding the behavior.  In addition to this log Auth0 will share, per user, a historical view for each user.  Simply navigate to [Users](https://manage.auth0.com/#/users), select a user, and the click on history.  This will show roughly 30 days of history associated with that user.
 
