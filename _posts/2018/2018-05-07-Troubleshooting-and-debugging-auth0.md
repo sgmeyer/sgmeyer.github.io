@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Debugging and Troubleshoot Auth0"
+title: "Debugging and Troubleshooting Auth0"
 date: 2018-05-07 -0800
 comments: true
 categories: [Auth0, Debugging]
