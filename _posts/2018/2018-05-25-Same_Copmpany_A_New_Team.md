@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Same Company New Team"
-date: 2018-0525 -0800
+date: 2018-05-25 -0800
 comments: true
 categories: [Auth0, Debugging]
 summary: "A briefing of how I felt joining Auth0 and the new opportunity ahead within Auth0." 
